@@ -3,4 +3,7 @@
     <string name="header_text">Guess if the next throw is going to be lower, equal or higher.</string>
     <string name="last_throw">Last Throw:</string>
     <string name="des_dice">Dice</string>
+    <string name="lower">Lower</string>
+    <string name="equals">Equals</string>
+    <string name="higher">Higher</string>
 </resources>
