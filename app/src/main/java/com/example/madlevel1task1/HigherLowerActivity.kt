@@ -18,17 +18,50 @@ class HigherLowerActivity : AppCompatActivity() {
         initViews()
     }
 
+    /**
+     * Sets button bindings accordingly.
+     */
     fun initViews() {
+        binding.bLower.setOnClickListener {
+            onLowerClick()
+        }
+
+        binding.bEquals.setOnClickListener {
+            onEqualClick()
+        }
+
+        binding.bHigher.setOnClickListener {
+            onHigherClick()
+        }
+
         updateUI()
     }
 
+    /**
+     * Changes all views.
+     */
     fun updateUI() {
         // 1. Access view through binding.
         // 2. Set its text property to the string from res>strings.xml
         // (R stands for the resource folder)
         binding.lastThrowValue.text = getString(R.string.last_throw, lastThrow)
+
+        when (currentThrow) {
+            1 -> binding.imageView.setImageResource(R.drawable.dice1)
+            2 -> binding.imageView.setImageResource(R.drawable.dice2)
+            3 -> binding.imageView.setImageResource(R.drawable.dice3)
+            4 -> binding.imageView.setImageResource(R.drawable.dice4)
+            5 -> binding.imageView.setImageResource(R.drawable.dice5)
+            else -> {
+                // Shows 6
+                binding.imageView.setImageResource(R.drawable.dice6)
+            }
+        }
     }
 
+    /**
+     * Changes the currentThrow to a random number between 1 to 6.
+     */
     fun rollDice() {
         lastThrow = currentThrow
         // Picks random number from set 1 to 6.
