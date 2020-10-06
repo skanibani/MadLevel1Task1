@@ -27,4 +27,11 @@ class HigherLowerActivity : AppCompatActivity() {
         // (R stands for the resource folder)
         binding.lastThrowValue.text = getString(R.string.last_throw, lastThrow)
     }
+
+    fun rollDice() {
+        lastThrow = currentThrow
+        // Picks random number from set 1 to 6.
+        currentThrow = (1..6).random()
+        updateUI()
+    }
 }
